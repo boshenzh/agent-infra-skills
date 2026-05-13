@@ -1,0 +1,30 @@
+# Mirador minimal config template.
+# Copy to ~/.config/mirador/config.toml and fill all <placeholders>.
+# Provider-specific values for `backend.host` are in references/providers.md.
+
+[accounts.<account-name>]
+default = true
+folder = "INBOX"
+
+backend.type = "imap"
+backend.host = "<imap.example.com>"
+backend.port = 993
+backend.encryption.type = "tls"
+backend.login = "<full-email-address>"
+backend.auth.type = "password"
+backend.auth.cmd = "security find-generic-password -a <full-email-address> -s mirador-<account-name> -w"
+
+# Fired on every new envelope. Placeholders supported:
+#   {id} {subject}
+#   {sender} {sender.name} {sender.address}
+#   {recipient} {recipient.name} {recipient.address}
+# NO {body}, NO {date}, NO {message-id} — fetch via himalaya in the wake-event handler.
+on-message-added.cmd = """curl -s -X POST http://127.0.0.1:18789/hooks/wake \
+  -H "Authorization: Bearer ${OPENCLAW_HOOK_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -d '{"text":"new mail uid={id} from={sender.address} subject=\\"{subject}\\"","mode":"now"}'"""
+
+# OPTIONAL — also raise a macOS system notification.
+# Omit both keys if you only want the webhook (no desktop popup).
+# on-message-added.notify.summary = "📬 {sender.name}"
+# on-message-added.notify.body = "{subject}"

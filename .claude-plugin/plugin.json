@@ -1,0 +1,9 @@
+{
+  "name": "agent-infra-skills",
+  "version": "0.1.0",
+  "description": "Cross-business agent infrastructure skills — IMAP mailbox watch (mirador), IMAP read/write (himalaya pointer). Agent-agnostic; runs under OpenClaw, Codex, Hermes Agent, Claude Code.",
+  "author": "boshenzh",
+  "license": "Apache-2.0",
+  "repository": "boshenzh/agent-infra-skills",
+  "homepage": "https://github.com/boshenzh/agent-infra-skills"
+}
