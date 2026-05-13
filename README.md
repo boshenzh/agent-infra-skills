@@ -8,16 +8,16 @@ Layer 2 · <industry>-pp-cli     ← e.g. ocean-pp-cli (industry CLI + wrapper s
 Layer 3 · <industry>-<company>  ← company-specific scenario playbooks (private)
 ```
 
-## Skills shipped in v0.1
+## Skills shipped
 
 | Skill | Wraps | Purpose |
 |---|---|---|
 | `mirador-watch` | [pimalaya/mirador](https://github.com/pimalaya/mirador) | Hold an IMAP IDLE long-connection on any mailbox; fire a shell command on each new message (typically `curl POST` to an agent's wake webhook). |
 | `himalaya` | [pimalaya/himalaya](https://github.com/pimalaya/himalaya) — thin pointer to upstream [openclaw/openclaw/skills/himalaya](https://github.com/openclaw/openclaw/blob/main/skills/himalaya/SKILL.md) | Read / send / search / move / delete IMAP+SMTP mail. |
+| `wecomcli-smartsheet` | [WecomTeam/wecom-cli](https://github.com/WecomTeam/wecom-cli) — thin pointer to upstream [skills/wecomcli-smartsheet/SKILL.md](https://github.com/WecomTeam/wecom-cli/blob/main/skills/wecomcli-smartsheet/SKILL.md) | Manage WeCom (企业微信) smartsheet structure (sub-sheets, fields/columns) and data (records add/update/delete/query) via `wecom-cli doc smartsheet_*`. |
 
-## Roadmap (not in v0.1)
+## Roadmap
 
-- `wecom-bridge` — WeCom (企微) smartsheet CRUD wrapper
 - `telegram-send` — outbound notification to Telegram chat
 - `dingtalk-send` / `feishu-send` — group robot notifications
 
