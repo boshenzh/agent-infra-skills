@@ -26,7 +26,8 @@ Layer 3 · <industry>-<company>  ← company-specific scenario playbooks (privat
 ### OpenClaw
 
 ```bash
-openclaw plugins install --marketplace boshenzh/agent-infra-skills
+git clone https://github.com/boshenzh/agent-infra-skills.git
+openclaw plugins install -l ./agent-infra-skills
 openclaw config set plugins.allow '["agent-infra-skills"]'
 ```
 
